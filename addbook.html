@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Reading Journal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>My Reading Journal</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="bookshelf.html">My Bookshelf</a></li>
+                <li><a href="addbook.html">Add Book</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="add-book">
+            <h2>Add New Book</h2>
+            <p>Here you can easily add new books to your Bookshelf. You can add books manually or via ISBN search.</p>
+                <h3>Add Books Manually</h3>
+                    <form id="bookForm">
+                        <div class="rows">
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" name="title" placeholder="Book title" required>
+                        <label for="author">Author:</label>
+                        <input type="text" id="author" name="author" placeholder="Author name" required>
+                        </div>
+
+                        <div class="rows">
+                        <label for="start-date">Started:</label>
+                        <input type="date" id="startdate" name="startdate" required>
+                        <label for="end-date">Finished:</label>
+                        <input type="date" id="enddate" name="enddate">
+                        </div>
+
+                        <div class="rows">
+                        <label for="pages">Pages:</label>
+                        <input type="text" id="pages" name="pages" placeholder="Amount of pages read" required>
+                        <label for="genre">Genre:</label>
+                        <input type="text" id="genre" name="genre" placeholder="Book genre/genres" required>
+                        </div>
+
+                        <div class="rows">
+                        <label for="rating">Rating:</label>
+                        <select id="rating" name="rating">
+                        <option value="">Select</option>
+                        <option value="⭐">⭐ (1/5)</option>
+                        <option value="⭐⭐">⭐⭐ (2/5)</option>
+                        <option value="⭐⭐⭐">⭐⭐⭐ (3/5)</option>
+                        <option value="⭐⭐⭐⭐">⭐⭐⭐⭐ (4/5)</option>
+                        <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐ (5/5)</option>
+                        </select>
+                        <label for="cover">Cover:</label>
+                        <input type="file" id="cover" name="cover" accept="image/*" required>
+                        </div>
+
+                        <label for="comments">Comments:</label>
+                        <textarea id="comments" name="comments" rows="4"> </textarea>
+
+                        <button type="submit" class="add-new">Add New Book</button>
+                     </form>
+             <h3>Add Book with ISBN</h3>
+                <div class="add-isbn">
+                    <label for="isbn">Enter ISBN:</label>
+                    <input type="text" id="isbn" placeholder="ISBN number">
+                    <button class="isbn-search">Search</button>
+                </div>
+        </section>
+    </main>
+    <footer>
+        <p>My Reading Journal - PRO Project Assignment</p>
+    </footer>
+    <script src="isbnapi.js"></script>
+</body>
+</html>
