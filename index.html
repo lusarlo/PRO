@@ -17,23 +17,31 @@
         </nav>
     </header>
     <main>
-        <section class="About">
+        <section class="about">
             <h2>About</h2>
             <p>Welcome to <strong>My Reading Journal</strong> — a personal space to capture your reading journey one book at a time. Here, you can track the books you've read, rate them, and write down your reflections along the way. <em>Grab a book and begin your journey.</em></p>
         </section>
-        <section class="instructions">
+        <section class="how-to">
             <h2>How to Use</h2>
             <ul>
                 <li><strong>My bookshelf:</strong> Browse the books you've added to your own digital bookshelf.</li>
-                <li><strong>Update as you read:</strong> Use the Edit button on any book to keep your reading progress and notes up to date.</li>
-                <li><strong>Add book:</strong> Go to the Add Book page to add books to your Bookshelf. Add data manually or auto-fill by using ISBN.</li>
-                <li><strong>Get recommendations:</strong>  Search for book recommendations, to plan your next read.</li>
+                <li><strong>Update as you read:</strong> Use the "Edit" button on any book to keep your reading progress and notes up to date.</li>
+                <li><strong>Add book:</strong> Go to the "Add Book" page to add books to your Bookshelf. Add data manually or auto-fill by using ISBN.</li>
+                <li><strong>Get recommendations:</strong>  Get personalize book recommendations from AI to help you choose your next book.</li>
             </ul>
+        </section>
+        <section class="recommendations">
+            <h2>AI Book Recommendations</h2>
+            <p>Ask for book suggestions based on your mood, favorite genres, or authors.</p>
+            <div class="ai-recommendation">
+                <input type="text" id="prompt" placeholder="Ask for book recommendations...">
+                <button class="get-prompt">Get recommendations</button>
+            </div>
         </section>
     </main>
     <footer>
         <p>My Reading Journal - PRO Project Assignment</p>
     </footer>
-
+    <script src="airec.js"></script>
 </body>
 </html>
