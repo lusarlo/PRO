@@ -40,7 +40,6 @@ nav a:hover {
 }
 
 /*INTRO*/
-
 .intro {
     display: flex;
     flex-wrap: wrap;
@@ -52,7 +51,7 @@ nav a:hover {
     background: #CDE7FF;
     border-radius: 8px;
     padding:1rem;
-    margin: 1rem;
+    margin: 1rem auto;
     max-width: 40rem;
 }
 
@@ -61,7 +60,7 @@ nav a:hover {
     background: #CDE7FF;
     border-radius: 8px;
     padding:1rem;
-    margin: 1rem;
+    margin: 1rem auto;
     max-width: 40rem;
 }
 
@@ -72,7 +71,6 @@ nav a:hover {
 }
 
 /*BOOKIE AI LIBRARIAN*/
-
 .recommendations {
     background: #CDE7FF;
     border-radius: 8px;
@@ -80,6 +78,9 @@ nav a:hover {
     margin: 1rem auto;
     max-width: 40rem;
     text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .ai-recommendation {
@@ -110,3 +111,8 @@ nav a:hover {
   width: 15rem;
   justify-content: center;
 }
+
+/*BOOKSHELF*/
+
+
+
