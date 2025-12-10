@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+body {
+    font-family: "Sansation", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0;
+    background: #FAF6EF;
+    color: #2D2D2D;
+}
+/*HEADER*/
+header {
+    background: #3C4A63;
+    color: #FAF6EF;
+    padding: 1rem;
+    text-align: left;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+    align-items:center;
+    gap: 5rem;
+}
+
+nav a {
+    color:#FAF6EF;
+    text-decoration: none;
+}
+
+nav a:hover {
+     text-decoration:underline;
+}
