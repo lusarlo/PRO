@@ -96,7 +96,7 @@ nav a:hover {
     width:20rem;
     padding: 0.5rem;
     border-radius: 0.5rem;
-    border:2px solid #3C4A63;
+    border:1px solid #3C4A63;
 }
 
 .get-prompt {
@@ -156,4 +156,101 @@ nav a:hover {
   font-size: 16px;
   width: 5rem;
   align-self: center;
+}
+
+/*ADD BOOK SECTION*/
+.add-book p {
+    text-align: center;
+}
+
+.methods {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 10rem;          
+}
+
+.method-block {
+    max-width: 40rem;
+}
+
+/*ADD BOOK MANUALLY*/
+#bookForm {
+  max-width: 40rem;
+  margin: 1rem auto;
+  padding: 1rem;
+  background-color:#CDE7FF;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#bookForm label {
+  font-weight: bold;
+}
+
+#bookForm input {
+    font-size: 16px;
+    padding:0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #3C4A63;
+}
+
+#bookForm input[type="file"] {
+    border:none;
+}
+
+#bookForm textarea {
+    font-size: 16px;
+    padding:0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #3C4A63;
+}
+.add-new {
+  background: #3C4A63;
+  color:#FAF6EF;
+  border: 0;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  font-size: 16px;
+  align-self: center;
+  width: 10rem;
+  margin: 1rem auto;
+}
+
+/*ADD BOOK ISBN*/
+.add-isbn {
+    background: #CDE7FF;
+    border-radius: 8px;
+    padding:1rem;
+    margin: 1rem auto;
+    max-width: 40rem;
+    display: flex;
+    flex-direction: wrap;
+    gap:3rem;
+}
+
+.add-isbn input {
+    font-size: 16px;
+    width:20rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #3C4A63;
+}
+
+.add-isbn label {
+    font-weight: bold;
+}
+
+.isbn-search {
+ background: #3C4A63;
+  color:#FAF6EF;
+  border: 0;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  font-size: 16px;
+  width: 5rem;
 }
