@@ -33,3 +33,25 @@ nav a {
 nav a:hover {
      text-decoration:underline;
 }
+
+.about {
+    background: #CDE7FF;
+    border-radius: 8px;
+    padding:1rem;
+    margin: 1rem;
+    max-width: 40rem;
+}
+
+.how-to {
+    background: #CDE7FF;
+    border-radius: 8px;
+    padding:1rem;
+    margin: 1rem;
+    max-width: 40rem;
+}
+
+.how-to ul {
+    list-style:disc;
+    padding: 1rem;
+    margin: 0;
+}
