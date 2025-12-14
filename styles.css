@@ -253,7 +253,7 @@ nav a:hover {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    text-align: left;m
+    text-align: left;
 }
 
 .add-isbn input {
