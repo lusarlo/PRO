@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
 body {
     font-family: "Sansation", sans-serif;
     font-size: 16px;
@@ -199,9 +193,6 @@ nav a:hover {
     gap:1rem;
 }
 
-.rows > * {
-    min-width: 0;
-}
 .rows:has(textarea) {
     grid-column: 1/-1;
 }
@@ -209,15 +200,14 @@ nav a:hover {
 #bookForm label,
 #bookFormISBN label {
     font-weight: bold;
-    flex:0 0 5rem;
+    flex-shrink:0;
     width: 5rem;
     font-size: 16px;
 }
 
 #bookForm input,
 #bookFormISBN input {
-    flex: 1 1 auto;
-    min-width: 0;
+    flex:1;
     padding:0.8rem;
     border-radius: 0.5rem;
     border: 1px solid #3C4A63;
@@ -231,8 +221,7 @@ nav a:hover {
 
 #bookForm textarea,
 #bookFormISBN textarea {
-    flex: 1 1 auto;
-    min-width: 0;
+    flex:1;
     padding:0.5rem;
     border-radius: 0.5rem;
     border: 1px solid #3C4A63;
@@ -241,8 +230,7 @@ nav a:hover {
 
 #bookForm select,
 #bookFormISBN select {
-    flex: 1 1 auto;
-    min-width: 0;
+    flex:1;
     padding:0.8rem;
     font-size: 16px;
     border-radius: 0.5rem;
