@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 body {
     font-family: "Sansation", sans-serif;
     font-size: 16px;
@@ -173,9 +179,10 @@ nav a:hover {
     max-width: 40rem;
 }
 
-/*ADD BOOK MANUALLY*/
+/*ADD BOOK MANUALLY AND ISBN*/
 
-#bookForm {
+#bookForm,
+#bookFormISBN {
     padding: 1rem;
     margin: 1rem auto;
     background-color:#CDE7FF;
@@ -192,39 +199,50 @@ nav a:hover {
     gap:1rem;
 }
 
+.rows > * {
+    min-width: 0;
+}
 .rows:has(textarea) {
     grid-column: 1/-1;
 }
 
-#bookForm label {
+#bookForm label,
+#bookFormISBN label {
     font-weight: bold;
-    flex-shrink:0;
+    flex:0 0 5rem;
     width: 5rem;
     font-size: 16px;
 }
 
-#bookForm input {
-    flex:1;
+#bookForm input,
+#bookFormISBN input {
+    flex: 1 1 auto;
+    min-width: 0;
     padding:0.8rem;
     border-radius: 0.5rem;
     border: 1px solid #3C4A63;
     font-size: 16px;
 }
 
-#bookForm input[type="file"] {
+#bookForm input[type="file"],
+#bookFormISBN input[type="file"] {
     border:none;
 }
 
-#bookForm textarea {
-    width:100%;
+#bookForm textarea,
+#bookFormISBN textarea {
+    flex: 1 1 auto;
+    min-width: 0;
     padding:0.5rem;
     border-radius: 0.5rem;
     border: 1px solid #3C4A63;
     font-size: 16px;
 }
 
-#bookForm select {
-    flex:1;
+#bookForm select,
+#bookFormISBN select {
+    flex: 1 1 auto;
+    min-width: 0;
     padding:0.8rem;
     font-size: 16px;
     border-radius: 0.5rem;
@@ -244,7 +262,7 @@ nav a:hover {
     margin: 0.5rem;
 }
 
-/*ADD BOOK ISBN*/
+
 .add-isbn {
     max-width: 40rem;
     padding: 1rem;
@@ -280,51 +298,4 @@ nav a:hover {
     width: 5rem;
     align-self:center;
     margin:0.5rem;
-}
-
-#bookFormISBN {
-    padding: 1rem;
-    margin: 1rem auto;
-    background-color:#CDE7FF;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    text-align: left;
-}
-
-
-#bookFormISBN label {
-    font-weight: bold;
-    flex-shrink:0;
-    width: 5rem;
-    font-size: 16px;
-}
-
-#bookFormISBN input {
-    flex:1;
-    padding:0.8rem;
-    border-radius: 0.5rem;
-    border: 1px solid #3C4A63;
-    font-size: 16px;
-}
-
-#bookFormISBN input[type="file"] {
-    border:none;
-}
-
-#bookFormISBN textarea {
-    width:100%;
-    padding:0.5rem;
-    border-radius: 0.5rem;
-    border: 1px solid #3C4A63;
-    font-size: 16px;
-}
-
-#bookFormISBN select {
-    flex:1;
-    padding:0.8rem;
-    font-size: 16px;
-    border-radius: 0.5rem;
-    border: 1px solid #3C4A63;
 }
