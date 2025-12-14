@@ -1,7 +1,9 @@
-const form = document.getElementById("bookForm");
-const status = document.getElementById("formStatus");
+const formManual = document.getElementById("bookForm");
+const formISBN = document.getElementById("bookFormISBN");
+const statusManual = document.getElementById("formStatus");
+const statusISBN = document.getElementById("formStatusISBN");
 
-form.addEventListener("submit", function (event) {
+formManual.addEventListener("submit", function (event) {
   event.preventDefault();
 
   const title = document.getElementById("title").value;
@@ -15,13 +17,13 @@ form.addEventListener("submit", function (event) {
   const comments = document.getElementById("comments").value;
 
   if (!title || !author || !startDate || !pages || !genre || !cover) {
-    status.textContent = "Please fill all required fields: Title, Author, Started, Genre and Cover";
-    status.style.color = "red";
+  statusManual.textContent = "Please fill all required fields: Title, Author, Started, Genre and Cover";
+  statusManual.style.color = "red";
     return;
   }
 
-  status.textContent = "Book added successfully";
-  status.style.color = "green";
+  statusManual.textContent = "Book added successfully";
+  statusManual.style.color = "green";
   
   form.reset();
 
@@ -38,6 +40,44 @@ form.addEventListener("submit", function (event) {
   };
 
   console.log("New Book:", newBook);
+});
 
+
+formISBN.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const title = document.getElementById("titleISBN").value;
+  const author = document.getElementById("authorISBN").value;
+  const startDate = document.getElementById("startdateISBN").value;
+  const endDate = document.getElementById("enddateISBN").value;
+  const pages = document.getElementById("pagesISBN").value;
+  const genre = document.getElementById("genreISBN").value;
+  const rating = document.getElementById("ratingISBN").value;
+  const cover = document.getElementById("coverISBN").value;
+  const comments = document.getElementById("commentsISBN").value;
+
+  if (!title || !author || !startDate || !pages || !genre || !cover) {
+  statusISBN.textContent = "Please fill all required fields: Title, Author, Started, Genre and Cover";
+  statusISBN.style.color = "red";
+    return;
+  }
+
+  statusISBN.textContent = "Book added successfully";
+  statusISBN.style.color = "green";
   
+  form.reset();
+
+  const newBook = {
+    title,
+    author,
+    startDate,
+    endDate,
+    pages,
+    genre,
+    rating,
+    cover,
+    comments
+  };
+
+  console.log("New Book:", newBook);
 });
