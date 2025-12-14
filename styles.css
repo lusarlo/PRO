@@ -188,53 +188,36 @@ nav a:hover {
 }
 
 .rows {
-    display:flex;
-    align-items:center;
-    gap:1rem;
+    display: grid;
+    grid-template-columns: 6rem 1fr;
+    gap: 1rem;
+    align-items: start;
 }
 
-.rows:has(textarea) {
-    grid-column: 1/-1;
-}
 
 #bookForm label,
 #bookFormISBN label {
     font-weight: bold;
-    flex-shrink:0;
-    width: 5rem;
     font-size: 16px;
 }
 
 #bookForm input,
-#bookFormISBN input {
-    flex:1;
-    padding:0.8rem;
+#bookForm select,
+#bookForm textarea,
+#bookFormISBN input,
+#bookFormISBN select,
+#bookFormISBN textarea {
+    width: 80%;
+    padding: 0.8rem;
     border-radius: 0.5rem;
     border: 1px solid #3C4A63;
     font-size: 16px;
 }
+
 
 #bookForm input[type="file"],
 #bookFormISBN input[type="file"] {
     border:none;
-}
-
-#bookForm textarea,
-#bookFormISBN textarea {
-    flex:1;
-    padding:0.5rem;
-    border-radius: 0.5rem;
-    border: 1px solid #3C4A63;
-    font-size: 16px;
-}
-
-#bookForm select,
-#bookFormISBN select {
-    flex:1;
-    padding:0.8rem;
-    font-size: 16px;
-    border-radius: 0.5rem;
-    border: 1px solid #3C4A63;
 }
 
 .add-new {
