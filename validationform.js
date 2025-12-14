@@ -25,7 +25,7 @@ formManual.addEventListener("submit", function (event) {
   statusManual.textContent = "Book added successfully";
   statusManual.style.color = "green";
   
-  form.reset();
+  formManual.reset();
 
   const newBook = {
     title,
@@ -65,9 +65,9 @@ formISBN.addEventListener("submit", function (event) {
   statusISBN.textContent = "Book added successfully";
   statusISBN.style.color = "green";
   
-  form.reset();
+  formISBN.reset();
 
-  const newBook = {
+  const newBookISBN = {
     title,
     author,
     startDate,
@@ -79,5 +79,5 @@ formISBN.addEventListener("submit", function (event) {
     comments
   };
 
-  console.log("New Book:", newBook);
+  console.log("New Book:", newBookISBN);
 });
