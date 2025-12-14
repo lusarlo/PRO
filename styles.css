@@ -269,7 +269,7 @@ nav a:hover {
     font-weight: bold;
 }
 
-.isbn-search {
+#isbnSearch {
     background: #3C4A63;
     color:#FAF6EF;
     border: 0;
