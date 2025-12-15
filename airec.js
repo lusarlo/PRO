@@ -2,47 +2,43 @@ const getBtn = document.getElementById("getPrompt");
 const prompt = document.getElementById("prompt");
 const response = document.getElementById("aiResponse");
 
-const openai = new OpenAI({
-  apiKey: 'your-api-key-here',
-});
+const apiKey = "YOUR_API_KEY";
 
 getBtn.addEventListener("click", async () => {
-
-    const promptText = prompt.value;
-
-    if(!promptText) {
-        response.textContent = "Please enter a prompt.";
+    const promptText = prompt.value.trim();
+    if (!promptText) {
+        response.textContent = "Please enter a prompt before requesting recommendations.";
+        response.style.color = "red";
         return;
     }
 
-    response.textContent = "Loading recommendations...";
-
-    const messages = [
-        {
-            role: "system",
-            content: "You are an expert librarian, that can recommends books based on moods, favorite genres and authors. You will always recommend 5 books."
-        },
-        {
-            role: "user",
-            content: promptText
-        }
-    ]
+    response.textContent = "Loading recommendations…";
+    response.style.color ="black";
 
     try {
-        const completion = await openai.completions.create({
-        model: "GPT-4.1 mini",
-        messages: messages,
-        max_tokens: 150
+        const completion = await fetch("https://api.openai.com/v1/chat/completions", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + apiKey
+            },
+            body: JSON.stringify({
+                model: "gpt-4o-mini",
+                messages: [
+                    { role: "system", content: "You are an expert librarian that recommend books based on moods, favorite books, authors and genres. You always recommend 4 books." },
+                    { role: "user", content: promptText }
+                ],
+            })
         });
+
         if (!completion.ok) throw new Error("API error");
 
         const data = await completion.json();
         response.textContent = data.choices[0].message.content;
+        response.style.color = "black";
 
-        } 
-    
-    catch (error) {
-        responseBox.textContent = 
-            "Something went wrong. Please try again.";
-         }
+    } catch (error) {
+        response.textContent = "Something went wrong. Please try again.";
+        response.style.color = "red";
+    }
 });
