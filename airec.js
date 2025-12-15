@@ -3,7 +3,7 @@ const prompt = document.getElementById("prompt");
 const response = document.getElementById("aiResponse");
 
 const apiKey = "YOUR_API_KEY";
-
+// When the user click the get recommendation button, if the prompt input is empty, show error message.
 getBtn.addEventListener("click", async () => {
     const promptText = prompt.value.trim();
     if (!promptText) {
@@ -11,10 +11,10 @@ getBtn.addEventListener("click", async () => {
         response.style.color = "red";
         return;
     }
-
+// Show message while waiting for the OpenAI response.
     response.textContent = "Loading recommendations…";
     response.style.color ="black";
-
+// Call the OpenAI Chat Completions API with the chosen model and instructions.
     try {
         const completion = await fetch("https://api.openai.com/v1/chat/completions", {
             method: "POST",
@@ -32,11 +32,11 @@ getBtn.addEventListener("click", async () => {
         });
 
         if (!completion.ok) throw new Error("API error");
-
+// We make the response of the AI visible in the page.
         const data = await completion.json();
         response.textContent = data.choices[0].message.content;
         response.style.color = "black";
-
+// If any error happens the code jumps here and shows an error message. 
     } catch (error) {
         response.textContent = "Something went wrong. Please try again.";
         response.style.color = "red";
