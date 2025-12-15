@@ -16,6 +16,7 @@ formManual.addEventListener("submit", function (event) {
   const cover = document.getElementById("cover").value;
   const comments = document.getElementById("comments").value;
 
+//I decided to only include title, author, start date, pages, genre and cover as required for this validation and not all the input because the user can add a book that they are still reading, since they would be able to edit content on the Bookshelf page.
   if (!title || !author || !startDate || !pages || !genre || !cover) {
   statusManual.textContent = "Please fill all required fields: Title, Author, Started, Genre and Cover";
   statusManual.style.color = "red";
@@ -56,6 +57,7 @@ formISBN.addEventListener("submit", function (event) {
   const cover = document.getElementById("coverISBN").value;
   const comments = document.getElementById("commentsISBN").value;
 
+  //I decided to only include title, author, start date, pages, genre and cover as required for this validation and not all the input because the user can add a book that they are still reading, since they would be able to edit content on the Bookshelf page.
   if (!title || !author || !startDate || !pages || !genre || !cover) {
   statusISBN.textContent = "Please fill all required fields: Title, Author, Started, Genre and Cover";
   statusISBN.style.color = "red";
