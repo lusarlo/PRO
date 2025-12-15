@@ -99,7 +99,7 @@ nav a:hover {
     border:1px solid #3C4A63;
 }
 
-.get-prompt {
+#getPrompt {
     background: #3C4A63;
     color:#FAF6EF;
     border: 0;
