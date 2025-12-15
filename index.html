@@ -37,8 +37,9 @@
             <h2>Bookie - Your AI Librarian</h2>
             <p>Ask <strong>Bookie</strong> book suggestions based on your mood, favorite genres, or authors.</p>
             <div class="ai-recommendation">
-                <input type="text" id="prompt" placeholder="Ask for book recommendations...">
+                <textarea id="prompt" placeholder="Ask for book recommendations..." rows="5"></textarea>
                 <button class="get-prompt">Get recommendations</button>
+                <div id="aiResponse" role="status" aria-live="polite"></div>
             </div>
         </section>
     </main>
