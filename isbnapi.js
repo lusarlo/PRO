@@ -2,7 +2,7 @@ const isbnInput = document.getElementById("isbn");
 const isbnSearchBtn = document.getElementById("isbnSearch");
 const isbnStatus = document.getElementById("isbnStatus");
 
-// ISBN validation (ISBN-10 and ISBN-13)
+// ISBN validation. I used Chat GPT to create this validation, since I struggle creating this part of the code by myself.
 function isValidISBN(isbn) {
   isbn = isbn.replace(/[-\s]/g, "");
 
