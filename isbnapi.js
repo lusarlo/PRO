@@ -2,11 +2,12 @@ const isbnInput = document.getElementById("isbn");
 const isbnSearchBtn = document.getElementById("isbnSearch");
 const isbnStatus = document.getElementById("isbnStatus");
 
-// ISBN validation. I used Chat GPT to create this validation, since I struggle creating this part of the code by myself.
+// ISBN validation. Since there are two types of ISBN (ISBN-10 and ISBN-13) we need to create validations for both of them.
+// With this function hyphens (-) and whitespaces (\s) are removed from the ISBN Number and the g flag is used to replace all occurrences.
 function isValidISBN(isbn) {
   isbn = isbn.replace(/[-\s]/g, "");
 
-  // ISBN-10
+  // ISBN-10. Has 9 digits and 1 check character.
   if (isbn.length === 10) {
     let sum = 0;
     for (let i = 0; i < 9; i++) {
@@ -18,7 +19,7 @@ function isValidISBN(isbn) {
     return sum % 11 === 0;
   }
 
-  // ISBN-13
+  // ISBN-13. Has 12 digits and 1 check digit (numeric).
   if (isbn.length === 13) {
     let sum = 0;
     for (let i = 0; i < 12; i++) {
@@ -28,10 +29,10 @@ function isValidISBN(isbn) {
     let check = (10 - (sum % 10)) % 10;
     return check === parseInt(isbn[12]);
   }
-
+// If length is not 10 not 13 the ISBN is invalid.
   return false;
 }
-
+// With this function we will get the information of a book by its ISBN using Google Books API.
 async function fetchBookByISBN(isbn) {
   isbnStatus.textContent = "Searching book...";
   isbnStatus.style.color = "black";
@@ -47,7 +48,7 @@ async function fetchBookByISBN(isbn) {
       isbnStatus.style.color = "red";
       return;
     }
-
+// volumeInfo contains the data for title, authors, total pages and genre. Google Book API use title, authors, pageCount and categories for these details. We use these and the different inputs id to autofill the inputs with the information from the Google Books API.
     const book = data.items[0].volumeInfo;
 
     document.getElementById("titleISBN").value = book.title || "";
@@ -58,9 +59,10 @@ async function fetchBookByISBN(isbn) {
     document.getElementById("genreISBN").value = book.categories
       ? book.categories.join(", ")
       : "";
-
+// This clears the ISBN input so the user is ready to search a new book.
     isbnInput.value = "";
 
+// Updated the status to indicate that the information of the book was loaded successfully. 
     isbnStatus.textContent = "Book loaded! Ready to search another ISBN.";
     isbnStatus.style.color = "green";
 
@@ -70,7 +72,7 @@ async function fetchBookByISBN(isbn) {
     console.error(error);
   }
 }
-
+// Validate the ISBN input, if it is empty or invalid show a error message to the user.  
 isbnSearchBtn.addEventListener("click", () => {
   const isbn = isbnInput.value.trim();
 
