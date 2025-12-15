@@ -111,6 +111,10 @@ nav a:hover {
     justify-content: center;
 }
 
+#getPrompt:hover {
+    background: #526382;
+}
+
 /*BOOKSHELF*/
 .bookshelf {
     text-align: center;
@@ -156,6 +160,10 @@ nav a:hover {
     font-size: 16px;
     width: 5rem;
     align-self: center;
+}
+
+.btn-edit:hover {
+    background: #526382;
 }
 
 /*ADD BOOK SECTION*/
@@ -233,6 +241,10 @@ nav a:hover {
     margin: 0.5rem;
 }
 
+.add-new:hover {
+    background: #526382;
+}
+
 
 .add-isbn {
     max-width: 40rem;
@@ -269,4 +281,8 @@ nav a:hover {
     width: 5rem;
     align-self:center;
     margin:0.5rem;
+}
+
+#isbnSearch:hover {
+    background: #526382;
 }

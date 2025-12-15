@@ -23,6 +23,12 @@ formManual.addEventListener("submit", function (event) {
     return;
   }
 
+  if (endDate && new Date(endDate) < new Date(startDate)) {
+  statusManual.textContent = "End date cannot be earlier than start date.";
+  statusManual.style.color = "red";
+  return;
+  }
+
   statusManual.textContent = "Book added successfully";
   statusManual.style.color = "green";
   
@@ -61,6 +67,12 @@ formISBN.addEventListener("submit", function (event) {
   if (!title || !author || !startDate || !pages || !genre || !cover) {
   statusISBN.textContent = "Please fill all required fields: Title, Author, Started, Genre and Cover";
   statusISBN.style.color = "red";
+    return;
+  }
+
+  if (endDate && new Date(endDate) < new Date(startDate)) {
+    statusISBN.textContent = "End date cannot be earlier than start date.";
+    statusISBN.style.color = "red";
     return;
   }
 
