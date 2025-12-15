@@ -3,31 +3,31 @@ const isbnSearchBtn = document.getElementById("isbnSearch");
 const isbnStatus = document.getElementById("isbnStatus");
 
 // ISBN validation. Since there are two types of ISBN (ISBN-10 and ISBN-13) we need to create validations for both of them.
-// With this function hyphens (-) and whitespaces (\s) are removed from the ISBN Number and the g flag is used to replace all occurrences.
+// With this cleanISBN hyphens (-) and whitespaces (\s) are removed from the ISBN Number and the g flag is used to replace all occurrences.
 function isValidISBN(isbn) {
-  isbn = isbn.replace(/[-\s]/g, "");
+ const cleanISBN = isbn.replace(/[-\s]/g, "");
 
   // ISBN-10. Has 9 digits and 1 check character.
-  if (isbn.length === 10) {
+  if (cleanISBN.length === 10) {
     let sum = 0;
     for (let i = 0; i < 9; i++) {
-      if (isNaN(isbn[i])) return false;
-      sum += (10 - i) * parseInt(isbn[i]);
+      if (isNaN(cleanISBN[i])) return false;
+      sum += (10 - i) * parseInt(cleanISBN[i]);
     }
-    let check = isbn[9].toUpperCase();
+    let check = cleanISBN[9].toUpperCase();
     sum += check === "X" ? 10 : parseInt(check);
-    return sum % 11 === 0;
+    return sum % 11 === 0 ? cleanISBN : false;
   }
 
   // ISBN-13. Has 12 digits and 1 check digit (numeric).
-  if (isbn.length === 13) {
+  if (cleanISBN.length === 13) {
     let sum = 0;
     for (let i = 0; i < 12; i++) {
-      if (isNaN(isbn[i])) return false;
-      sum += parseInt(isbn[i]) * (i % 2 === 0 ? 1 : 3);
+      if (isNaN(cleanISBN[i])) return false;
+      sum += parseInt(cleanISBN[i]) * (i % 2 === 0 ? 1 : 3);
     }
     let check = (10 - (sum % 10)) % 10;
-    return check === parseInt(isbn[12]);
+    return check === parseInt(cleanISBN[12]) ? cleanISBN: false;
   }
 // If length is not 10 not 13 the ISBN is invalid.
   return false;
@@ -74,19 +74,20 @@ async function fetchBookByISBN(isbn) {
 }
 // Validate the ISBN input, if it is empty or invalid show a error message to the user.  
 isbnSearchBtn.addEventListener("click", () => {
-  const isbn = isbnInput.value.trim();
+  const rawISBN = isbnInput.value.trim();
 
-  if (!isbn) {
+  if (!rawISBN) {
     isbnStatus.textContent = "Please enter an ISBN number.";
     isbnStatus.style.color = "red";
     return;
   }
+  const cleanISBN = isValidISBN(rawISBN);
 
-  if (!isValidISBN(isbn)) {
+  if (!cleanISBN) {
     isbnStatus.textContent = "Invalid ISBN number.";
     isbnStatus.style.color = "red";
     return;
   }
 
-  fetchBookByISBN(isbn);
+  fetchBookByISBN(cleanISBN);
 });
